@@ -17,7 +17,7 @@
 <header class="main-header">
     <div class="header-bars">
         <i class="fas fa-bars"></i>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times hide"></i>
     </div>
     <nav>
         <ul>
@@ -33,21 +33,26 @@
 
 <main class="content-wrapper">
     <header id="home" class="home-header">
-        <h1>Katherine Ortega</h1>
-        <p>Curriculum Vitae</p>
+        <div class="title-wrapper">
+            <h1>Katherine Ortega</h1>
+            <p>Curriculum Vitae</p>
+        </div>
     </header>
 
     <section id="introduce">
         <header>
             <h2>¿Quién soy?</h2>
         </header>
-        <article>
-            <p>Mi nombre es Katherine C. Ortega Ramos, soy Desarrolladora Front-end & Diseñadora gráfica. Mi amor por la programación empezó hace menos de un año gracias a un curso del instituto,
-                desde entonces me han interesado la creacion de aplicaciones web que faciliten la vida a las personas.</p>
+        <article class="introduce-wrapper">
+            <div class="introduce-paragraph">
+                <p>Mi nombre es Katherine Cecilia Ortega Ramos, soy Desarrolladora Front-end & Diseñadora gráfica. Mi amor por la programación empezó hace menos de un año gracias a un curso del
+                    instituto,
+                    desde entonces me han interesado la creacion de aplicaciones web que faciliten la vida a las personas.</p>
+            </div>
 
-            <figure>
-                <img src="assets/photo.png" alt="katherine ortega">
-                <figcaption>Katherine Ortega</figcaption>
+            <figure class="introduce-image">
+                <img class="image-fluid circle-img" src="assets/photo.png" alt="katherine ortega">
+                <figcaption class="hide">Katherine Ortega</figcaption>
             </figure>
         </article>
     </section>
@@ -57,35 +62,35 @@
             <h2>Estudios</h2>
         </header>
 
-        <div>
+        <div class="studies-wrapper">
             <article>
                 <figure>
-                    <img src="assets/avansys.png" alt="Avansys">
-                    <figcaption>Avansys</figcaption>
+                    <img class="image-fluid circle-img" src="assets/avansys.png" alt="Avansys">
+                    <figcaption class="hide">Avansys</figcaption>
                 </figure>
                 <h3>Avansys</h3>
                 <p>Diseño Gráfico y Publicidad Digital</p>
             </article>
             <article>
                 <figure>
-                    <img src="assets/laboratoria.jpg" alt="Laboratoria">
-                    <figcaption>Laboratoria</figcaption>
+                    <img class="image-fluid circle-img" src="assets/laboratoria.jpg" alt="Laboratoria">
+                    <figcaption class="hide">Laboratoria</figcaption>
                 </figure>
                 <h3>Laboratoria</h3>
                 <p>Desarrollo Web</p>
             </article>
             <article>
                 <figure>
-                    <img src="assets/platzi.webp" alt="Platzi">
-                    <figcaption>Platzi</figcaption>
+                    <img class="image-fluid circle-img" src="assets/platzi.webp" alt="Platzi">
+                    <figcaption class="hide">Platzi</figcaption>
                 </figure>
                 <h3>Platzi</h3>
                 <p>Desarrollo e Ingeniería</p>
             </article>
             <article>
                 <figure>
-                    <img src="assets/keepcoding.webp" alt="KeepCoding">
-                    <figcaption>KeepCoding</figcaption>
+                    <img class="image-fluid circle-img" src="assets/keepcoding.webp" alt="KeepCoding">
+                    <figcaption class="hide">KeepCoding</figcaption>
                 </figure>
                 <h3>KeepCoding</h3>
                 <p>Bootcamp - Desarrollo Web</p>
@@ -97,47 +102,55 @@
         <header>
             <h2>Experiencia</h2>
         </header>
-
-        <article>
-            <h4><b>Analista Web</b></h4>
-            <p>Inkafarma</p>
-            <p><i>Septiembre, 2017 - Actualidad</i></p>
-            <ul>
-                <li>Desarrollo de aplicaciones web responsive</li>
-                <li>Metodologías Agile</li>
-            </ul>
-        </article>
+        <div class="experience-wrapper">
+            <article>
+                <h4><b>Analista Web</b></h4>
+                <p>Inkafarma</p>
+                <p><i>Septiembre, 2017 - Actualidad</i></p>
+                <ul>
+                    <li>Desarrollo de aplicaciones web responsive</li>
+                    <li>Metodologías Agile</li>
+                </ul>
+            </article>
+        </div>
     </section>
     <section id="about">
         <header>
             <h2>Sobre Mí</h2>
         </header>
 
-        <article>
-            <p>Disfruto pasar tiempo con mis mascotas</p>
-            <p>Viajo regularmente</p>
-            <p>Mi intrumento favorito es el Ukelele</p>
-        </article>
+        <div class="about-wrapper">
+            <article>
+                <h4>Pasatiempos:</h4>
+                <ul>
+                    <li>Disfruto pasar tiempo con mis mascotas</li>
+                    <li>Viajo regularmente</li>
+                    <li>Mi intrumento favorito es el Ukelele</li>
+                </ul>
+            </article>
 
-        <article>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/EovHF38IPjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-        </article>
+            <article>
+                <iframe src="https://www.youtube.com/embed/EovHF38IPjY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </article>
+        </div>
     </section>
     <section id="contact">
         <header>
             <h2>Contacto</h2>
         </header>
-        <article>
+        <article class="contact-wrapper">
             <form action="" id="contactForm">
                 <ul>
                     <li>
-                        <label for="name">Nombre</label>
+                        <label for="name">Nombre:</label>
                         <input type="text" name="name" id="name" placeholder="Ejm: Nombre Apellido" required>
+                        <span class="hide">Solo letras</span>
                     </li>
                     <li>
-                        <label for="email">Correo Electrónico</label>
+                        <label for="email">Correo Electrónico:</label>
                         <input type="email" name="email" id="email" placeholder="Ejm: ejemplo@correo.com" required>
+                        <span class="hide">Correo inválido</span>
                     </li>
                     <li>
                         <label for="selection">¿Cómo me has conocido?</label>
@@ -148,18 +161,20 @@
                             <option value="op3">Busqueda</option>
                             <option value="op3">Otro</option>
                         </select>
-                        <div>
+                        <div class="other-selection hide">
                             <label for="otherSelection"></label>
-                            <input type="text" name="otherSelection" id="otherSelection" placeholder="otro" required>
+                            <input type="text" name="otherSelection" id="otherSelection" placeholder="Escriba aquí" required>
                         </div>
                     </li>
                     <li>
-                        <label for="phone">Número de Contacto</label>
+                        <label for="phone">Número de Contacto:</label>
                         <input type="tel" name="phone" id="phone" placeholder="Ejm: 992456123">
+                        <span class="hide">Número inválido</span>
                     </li>
                     <li>
-                        <label for="message">Mensaje</label>
-                        <textarea name="message" id="message" cols="30" rows="10" maxlength="150" placeholder="Escriba aquí..."></textarea>
+                        <label for="message">Mensaje:</label>
+                        <textarea name="message" id="message" rows="5" maxlength="150" placeholder="Escriba aquí"></textarea>
+                        <span class="hide">Solo letras</span>
                     </li>
                 </ul>
                 <button type="submit" id="send">Enviar</button>
