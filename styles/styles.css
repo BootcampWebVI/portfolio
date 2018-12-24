@@ -1,3 +1,104 @@
-body {
+:root {
+    --color-main: #333333;
+    --color-text: #ffffff;
+}
+
+html {
     scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    background-color: var(--color-main);
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.main-header ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-header li {
+    color: var(--color-text);
+    text-align: center;
+}
+
+.main-header li:hover {
+    background-color: #595959;
+}
+
+.main-header li span {
+    display: none;
+    margin-left: 1rem;
+}
+
+.main-header li a {
+    display: block;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-header li i {
+    font-size: 1.5rem;
+    width: 2rem;
+}
+
+.main-header:hover {
+    width: 200px;
+}
+
+.main-header:hover li span {
+    display: inline-block;
+}
+
+.main-header:hover li {
+    text-align: left;
+}
+
+.header-bars {
+    color: var(--color-text);
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+
+.main-header:hover .header-bars {
+    text-align: left;
+}
+
+.content-wrapper {
+    margin-left: 70px;
+}
+
+.home-header {
+    height: 100vh;
+    background-image: url("../assets/home-background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--color-text);
+    background-color: var(--color-main);
+}
+
+.home-header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 4rem;
+    margin: 0;
 }
