@@ -19,7 +19,7 @@ body {
 
 /*Utils*/
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .image-fluid {
@@ -54,10 +54,6 @@ body {
     color: var(--color-light);
 }
 
-.main-header li:hover {
-    background-color: #595959;
-}
-
 .main-header li span {
     display: none;
     margin-left: 1rem;
@@ -73,6 +69,11 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem;
+}
+
+.main-header li a:hover,
+.main-header li a.active {
+    background-color: #595959;
 }
 
 .main-header li i {
@@ -110,7 +111,7 @@ body {
     margin-left: 70px;
 }
 
-.home-header,
+section#home,
 section header {
     display: flex;
     justify-content: center;
@@ -123,13 +124,13 @@ section header {
     position: relative;
 }
 
-.home-header {
+section#home {
     height: 100vh;
     background-image: url("../assets/home-background.jpg");
     background-position: center 80%;
 }
 
-.home-header::after,
+section#home::after,
 section header::after {
     content: '';
     position: absolute;
@@ -141,20 +142,20 @@ section header::after {
     opacity: 0.5;
 }
 
-.home-header .title-wrapper,
+section#home .title-wrapper,
 section header h2 {
     z-index: 1;
     color: var(--color-light);
     text-align: center;
 }
 
-.home-header h1 {
+section#home h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 4rem;
     margin: 0;
 }
 
-.home-header p {
+section#home p {
     font-size: 2rem;
     margin: 0;
 }
@@ -348,12 +349,13 @@ section .contact-wrapper label {
 
 section .contact-wrapper input,
 section .contact-wrapper select,
-section .contact-wrapper textarea{
+section .contact-wrapper textarea {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     border: 1px solid #cccccc;
     width: 100%;
 }
+
 section .contact-wrapper textarea {
     resize: none;
 }
@@ -372,4 +374,61 @@ section .contact-wrapper button {
 section .contact-wrapper span {
     color: red;
     font-size: 0.8rem;
+}
+
+section .contact-wrapper form footer {
+    display: inline-block;
+    background-color: #d1fff2;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+/*Header Animation*/
+
+.title-wrapper .title {
+    position: relative;
+    height: 6rem;
+}
+.title-wrapper .title > * {
+    position: absolute;
+    top: 0;
+}
+
+.title-wrapper .title > * {
+    animation: giggle 1s ease infinite;
+    mix-blend-mode: difference;
+}
+
+.title-wrapper .title .red {
+    color: #ff0000;
+}
+
+.title-wrapper .title .green {
+    color: #00ff00;
+    animation-delay: -0.67s;
+}
+
+.title-wrapper .title .blue {
+    color: #0000ff;
+    animation-delay: -0.33s;
+}
+
+@keyframes giggle {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(-2px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(2px);
+    }
+}
+
+@keyframes lines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 25px;
+    }
 }

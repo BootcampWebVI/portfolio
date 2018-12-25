@@ -10,7 +10,7 @@
           rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/app.js"></script>
+    <script src="./scripts/app.js"  type="module"></script>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="#home"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+            <li><a href="#home" class="active"><i class="fas fa-home"></i><span>Inicio</span></a></li>
             <li><a href="#introduce"><i class="fas fa-user"></i><span>Quien soy</span></a></li>
             <li><a href="#studies"><i class="fas fa-graduation-cap"></i><span>Estudios</span></a></li>
             <li><a href="#experience"><i class="fas fa-briefcase"></i><span>Experiencia</span></a></li>
@@ -32,12 +32,16 @@
 </header>
 
 <main class="content-wrapper">
-    <header id="home" class="home-header">
+    <section id="home">
         <div class="title-wrapper">
-            <h1>Katherine Ortega</h1>
+            <h1 class="title">
+                <span class="red">Katherine Ortega</span>
+                <span class="green">Katherine Ortega</span>
+                <span class="blue">Katherine Ortega</span>
+            </h1>
             <p>Curriculum Vitae</p>
         </div>
-    </header>
+    </section>
 
     <section id="introduce">
         <header>
@@ -140,44 +144,48 @@
             <h2>Contacto</h2>
         </header>
         <article class="contact-wrapper">
-            <form action="" id="contactForm">
+            <form action="" id="formContact">
                 <ul>
                     <li>
                         <label for="name">Nombre:</label>
-                        <input type="text" name="name" id="name" placeholder="Ejm: Nombre Apellido" required>
+                        <input type="text" name="name" id="name" pattern="^[A-Za-z -]+$" placeholder="Ejm: Nombre Apellido" required>
                         <span class="hide">Solo letras</span>
                     </li>
                     <li>
                         <label for="email">Correo Electrónico:</label>
-                        <input type="email" name="email" id="email" placeholder="Ejm: ejemplo@correo.com" required>
+                        <input type="email" name="email" id="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Ejm: ejemplo@correo.com" required>
                         <span class="hide">Correo inválido</span>
                     </li>
                     <li>
                         <label for="selection">¿Cómo me has conocido?</label>
                         <select name="selection" id="selection" required>
-                            <option hidden>Seleccionar</option>
-                            <option value="op1">LinkedIn</option>
-                            <option value="op2">Referencia</option>
-                            <option value="op3">Busqueda</option>
-                            <option value="op3">Otro</option>
+                            <option value="" hidden>Seleccionar</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Referencia">Referencia</option>
+                            <option value="Busqueda">Busqueda</option>
+                            <option value="Otro">Otro</option>
                         </select>
                         <div class="other-selection hide">
                             <label for="otherSelection"></label>
-                            <input type="text" name="otherSelection" id="otherSelection" placeholder="Escriba aquí" required>
+                            <input type="text" name="otherSelection" id="otherSelection" placeholder="Escriba aquí">
                         </div>
                     </li>
                     <li>
                         <label for="phone">Número de Contacto:</label>
-                        <input type="tel" name="phone" id="phone" placeholder="Ejm: 992456123">
+                        <input type="tel" name="phone" id="phone" placeholder="Ejm: 992456123" pattern="^(0|[1-9][0-9]*)$">
                         <span class="hide">Número inválido</span>
                     </li>
                     <li>
                         <label for="message">Mensaje:</label>
-                        <textarea name="message" id="message" rows="5" maxlength="150" placeholder="Escriba aquí"></textarea>
+                        <textarea name="message" maxlength="150" id="message" rows="5" placeholder="Escriba aquí" required></textarea>
                         <span class="hide">Solo letras</span>
                     </li>
                 </ul>
                 <button type="submit" id="send">Enviar</button>
+
+                <footer class="hide">
+                    Información recibida
+                </footer>
             </form>
         </article>
 
