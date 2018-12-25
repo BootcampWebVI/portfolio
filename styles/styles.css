@@ -33,16 +33,34 @@ body {
 /*Header*/
 
 .main-header {
+    position: relative;
+}
+
+.main-header .header-mobile {
+    position: fixed;
+    z-index: 1;
+    color: var(--color-light);
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.main-header nav {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    width: 70px;
+    width: 0;
     background-color: var(--color-main);
     transition-property: all;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
     z-index: 2;
+    overflow: hidden;
+}
+
+.main-header nav .fa-bars {
+    display: none;
 }
 
 .main-header ul {
@@ -63,7 +81,6 @@ body {
 .main-header li a {
     text-decoration: none;
     color: inherit;
-    overflow: hidden;
     height: 4rem;
     display: flex;
     align-items: center;
@@ -71,7 +88,6 @@ body {
     padding: 1rem;
 }
 
-.main-header li a:hover,
 .main-header li a.active {
     background-color: #595959;
 }
@@ -82,16 +98,8 @@ body {
     text-align: center;
 }
 
-.main-header:hover {
+.main-header nav.active {
     width: 200px;
-}
-
-.main-header:hover li span {
-    display: inline-block;
-}
-
-.main-header:hover li a {
-    justify-content: start;
 }
 
 .header-bars {
@@ -101,15 +109,19 @@ body {
     padding: 1.5rem;
 }
 
-.main-header:hover .header-bars {
+.main-header nav.active li span {
+    display: inline-block;
+}
+
+.main-header nav.active li a {
+    justify-content: start;
+}
+
+.main-header nav.active .header-bars {
     text-align: left;
 }
 
 /*Sections*/
-
-.content-wrapper {
-    margin-left: 70px;
-}
 
 section#home,
 section header {
@@ -151,12 +163,12 @@ section header h2 {
 
 section#home h1 {
     font-family: 'Roboto', sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
 }
 
 section#home p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -208,27 +220,20 @@ section > article,
 section .studies-wrapper,
 section .experience-wrapper,
 section .about-wrapper {
-    padding: 2rem 5rem;
+    padding: 1rem 2rem;
 }
 
 section .introduce-wrapper {
-    display: flex;
-    padding-top: 0;
+    display: block;
 }
 
 section .introduce-paragraph {
-    width: 50%;
-    margin: 0 5%;
+    width: 100%;
     line-height: 1.7;
-    font-size: 1.2rem;
     letter-spacing: 1.5px;
     display: flex;
     align-items: center;
-}
-
-section .introduce-image {
-    width: 30%;
-    margin: 0 5%;
+    text-align: center;
 }
 
 section .studies-wrapper {
@@ -238,8 +243,8 @@ section .studies-wrapper {
 }
 
 section .studies-wrapper article {
-    width: 20%;
-    margin: 2% 8%;
+    width: 100%;
+    margin: 1rem 0;
     display: inline-block;
     text-align: center;
     -webkit-box-shadow: 0 6px 24px -5px rgba(0, 0, 0, 0.75);
@@ -252,12 +257,14 @@ section .studies-wrapper article {
 section .experience-wrapper {
     display: flex;
     justify-content: center;
+    min-height: 60vh;
+    align-items: center;
 }
 
 section .experience-wrapper article {
     border-left: 6px solid #ddd;
-    padding: 1rem 3rem;
-    width: 60%;
+    padding: 1rem;
+    width: 100%;
     display: inline-block;
 }
 
@@ -272,20 +279,12 @@ section .experience-wrapper ul {
     margin-bottom: 0;
 }
 
+section .experience-wrapper li {
+    margin: 0.5rem 0;
+}
+
 section .about-wrapper {
-    display: flex;
-    align-items: center;
     min-height: 60vh;
-}
-
-section .about-wrapper article:first-child {
-    width: 40%;
-    margin: 0 5%;
-}
-
-section .about-wrapper article:last-child {
-    width: 40%;
-    margin: 0 5%;
 }
 
 section .about-wrapper article iframe {
@@ -294,12 +293,18 @@ section .about-wrapper article iframe {
 }
 
 section .about-wrapper h4 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 0;
 }
 
 section .about-wrapper ul {
     list-style: circle;
-    line-height: 3;
+    line-height: 2;
+    padding-left: 1.5rem;
+}
+
+section .about-wrapper li {
+    margin-bottom: 0.5rem;
 }
 
 section .contact-wrapper {
@@ -312,8 +317,8 @@ section .contact-wrapper form {
     -moz-box-shadow: 0 6px 24px -5px rgba(0, 0, 0, 0.75);
     box-shadow: 0 6px 24px -5px rgba(0, 0, 0, 0.75);
     border-radius: 0.4rem;
-    padding: 1.5rem 2rem;
-    width: 60%;
+    width: 100%;
+    padding: 1rem;
     margin-top: 2rem;
 }
 
@@ -323,21 +328,6 @@ section .contact-wrapper ul {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-}
-
-section .contact-wrapper li {
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    width: 47.5%;
-}
-
-section .contact-wrapper li:nth-child(odd) {
-    margin-right: 5%;
-}
-
-section .contact-wrapper li:last-child {
-    margin-right: 0;
-    width: 100%;
 }
 
 section .contact-wrapper label {
@@ -369,6 +359,8 @@ section .contact-wrapper button {
     text-transform: uppercase;
     font-weight: 700;
     color: #004c00a6;
+    text-align: center;
+    width: 100%;
 }
 
 section .contact-wrapper span {
@@ -385,12 +377,18 @@ section .contact-wrapper form footer {
     font-weight: 500;
 }
 
+section .contact-wrapper li {
+    margin: 0.5rem 0;
+    width: 100%;
+}
+
 /*Header Animation*/
 
 .title-wrapper .title {
     position: relative;
     height: 6rem;
 }
+
 .title-wrapper .title > * {
     position: absolute;
     top: 0;
@@ -431,4 +429,169 @@ section .contact-wrapper form footer {
     100% {
         background-position: 0 25px;
     }
+}
+
+@media screen and (min-width: 576px) {
+
+    section > article,
+    section .studies-wrapper,
+    section .experience-wrapper,
+    section .about-wrapper {
+        padding: 2rem 5rem;
+    }
+
+    section#home h1 {
+        font-size: 4rem;
+    }
+
+    section#home p {
+        font-size: 2rem;
+    }
+
+    /*introduction*/
+    section .introduce-wrapper {
+        padding-top: 0;
+    }
+
+    /*studies*/
+    section .studies-wrapper article {
+        width: 44%;
+        margin: 2% 3%;
+    }
+
+    /*contact*/
+    section .contact-wrapper form {
+        padding: 1.5rem;
+        width: 80%;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .content-wrapper {
+        margin-left: 70px;
+    }
+
+    .main-header nav {
+        width: 70px;
+    }
+
+    .main-header nav .fa-bars {
+        display: block;
+    }
+
+    .main-header nav .fa-times {
+        display: none;
+    }
+
+    .main-header:hover nav {
+        width: 200px;
+    }
+
+    .main-header li a:hover {
+        background-color: #595959;
+    }
+
+    .main-header:hover li span {
+        display: inline-block;
+    }
+
+    .main-header:hover li a {
+        justify-content: start;
+    }
+
+    .main-header:hover .header-bars {
+        text-align: left;
+    }
+
+    /*introduction*/
+    section .introduce-wrapper {
+        display: flex;
+    }
+
+    section .introduce-paragraph {
+        width: 50%;
+        margin: 0 5%;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    section .introduce-image {
+        width: 30%;
+        margin: 0 5%;
+    }
+
+    /*experience*/
+    section .experience-wrapper article {
+        width: 80%;
+        padding: 1rem 3rem;
+    }
+
+    /*contact*/
+    section .contact-wrapper form {
+        padding: 1.5rem 2rem;
+        width: 80%;
+    }
+
+    section .contact-wrapper li {
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        width: 47.5%;
+    }
+
+    section .contact-wrapper li:nth-child(odd) {
+        margin-right: 5%;
+    }
+
+    section .contact-wrapper li:last-child {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    section .contact-wrapper button {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    /*studies*/
+    section .studies-wrapper article {
+        width: 20%;
+        margin: 2% 8%;
+    }
+
+    /*experience*/
+    section .experience-wrapper article {
+        width: 60%;
+    }
+
+    /*about*/
+    section .about-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    section .about-wrapper article:first-child {
+        width: 40%;
+        margin: 0 5%;
+    }
+
+    section .about-wrapper article:last-child {
+        width: 40%;
+        margin: 0 5%;
+    }
+
+    section .about-wrapper h4 {
+        font-size: 1.8rem;
+        margin-bottom: inherit;
+    }
+
+    /*contact*/
+    section .contact-wrapper form {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
 }

@@ -1,10 +1,15 @@
 export function setMenu() {
     let arrayMenuItems = document.querySelectorAll('.main-header a')
     let arraySections = document.querySelectorAll('section')
+    let objectMenuMobile = document.querySelector('.header-mobile i')
+    let objectMenuNav = document.querySelector('.main-header nav')
+    let objectMenuMobileClose = document.querySelector('.main-header nav .fa-times')
     let arrayOffsets = []
 
     initNavigation()
     window.addEventListener('scroll', changeMenuStyle)
+    objectMenuMobile.addEventListener('click', showMenu)
+    objectMenuMobileClose.addEventListener('click', closeMenu)
 
     function initNavigation() {
         arraySections.forEach(
@@ -42,5 +47,13 @@ export function setMenu() {
             item => item.classList.remove('active')
         )
         arrayMenuItems[menuItem].classList.add('active')
+    }
+
+    function showMenu() {
+        objectMenuNav.classList.add('active')
+    }
+
+    function closeMenu() {
+        objectMenuNav.classList.remove('active')
     }
 }
